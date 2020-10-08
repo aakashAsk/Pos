@@ -1,0 +1,48 @@
+<div class="cart-box p-3 m-3">
+  <h3>Check Out</h3>
+  <div class="mt-3">
+    <table class="table" >
+      <thead class="bg-colr">
+        <tr class="table-row">
+          <th scope="col">Item name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of cartItem" [hidden]="cartItem.length < 0">
+            <td>{{item.title}}</td>
+            <td>
+             <samp>
+                <button class="addBtn Btn" (click)="addClick(item.id)">+</button>
+                <samp class="ml-3 mr-3">{{item.cartValue}}</samp>
+              <button class="rmvBtn Btn" (click)="rmvClick(item.id)">-</button>
+              </samp>
+            </td>
+            <td>{{item.price}}</td>
+          </tr>
+      </tbody>
+    </table>
+    <p style="text-align: center;" *ngIf="cartItem.length === 0">No item added</p>
+  </div>
+</div>
+
+<div class="footer p-3 m-3">
+  <div class="d-flex">
+    <p>Total:  </p>
+    <p style="margin-left: auto;">
+      <i class="fas fa-rupee-sign mr-1"></i>
+      {{totalPrice}}
+    </p>
+  </div>
+  <div>
+    <p>Select Payment Option :-</p>
+    <mat-radio-group aria-label="Select an option" [(ngModel)]="rdbtn">
+      <mat-radio-button value="cash" class="mr-3">Cash</mat-radio-button>
+      <mat-radio-button value="online">Online</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <button class="btn-f Btn-p" (click)="placeOrder(totalPrice)">Place Order</button>
+  <button class="btn-f Btn-p" (click)="cancelOrder()">Cancel Order</button>
+</div>
+

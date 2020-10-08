@@ -1,0 +1,91 @@
+<div class="main mb-3">
+  <mat-card>
+    <div class="input-box">
+      <div class="d-flex justify-content-center">
+        <div class="box pt-2 pb-2 wi-80 d-flex">
+          <h1>Sign Up</h1>
+         <div style="margin-left: auto;" 
+         [hidden]="!error">
+          <div class="error-msg"><i class="fas fa-check mr-2"></i>{{errorMsg}}</div>
+        </div>
+        </div>
+      </div>
+      <form [formGroup]="form" (submit)="submit(pass, conPass)" *ngIf="form">
+        <div class="d-flex justify-content-center">
+          <div class="wi-80">
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label for="txt3">Enter name</mat-label>
+                <input type="text"
+                matInput
+                class="p-1"
+                formControlName="name"
+                placeholder="Ex. John Cena">
+              </mat-form-field>
+            </div>
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label>Enter email</mat-label>
+                <input type="text"
+                matInput
+                class="p-1"
+                formControlName="email"
+                [email]="true"
+                placeholder="Ex. abc@xyg.com">
+              </mat-form-field>
+            </div>
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label for="txt3">Enter number</mat-label>
+                <input type="text"
+                matInput
+                class="p-1"
+                formControlName="number"
+                placeholder="Ex. 9867965187">
+              </mat-form-field>
+            </div>
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label for="txt3">Enter employe code</mat-label>
+                <input type="text"
+                matInput
+                class="p-1"
+                formControlName="code"
+                placeholder="Ex. #01">
+              </mat-form-field>
+            </div>
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label for="txt3">Enter password</mat-label>
+                <input type="password"
+                matInput
+                class="p-1"
+                #pass
+                formControlName="password"
+                placeholder="Password">
+              </mat-form-field>
+            </div>
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label for="txt3">Conform password</mat-label>
+                <input type="password"
+                matInput
+                class="p-1"
+                #conPass
+                formControlName="conPassword"
+                placeholder="Conform password">
+              </mat-form-field>
+            </div>
+            <div class="d-flex align-items-center">
+              <button type="submit" 
+            mat-raised-button 
+            class="outline"
+            color="primary"><mat-icon [hidden]="isLoadded"><mat-spinner diameter="20" color="accent" ></mat-spinner></mat-icon>Register</button>
+            <a [routerLink]="['/signup']" class="atag">Login User</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>

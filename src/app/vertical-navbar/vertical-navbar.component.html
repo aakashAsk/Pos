@@ -1,0 +1,16 @@
+<nav>
+  <ul>
+    <li class="li-first">
+      <a [routerLink]="['/']"><i class="fa fa-home" aria-hidden="true"></i></a>
+    </li>
+    <li>
+      <a [routerLink]="['/add-expenses']"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+    </li>
+    <li>
+      <a [routerLink]="['/add-products']"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    </li>
+    <li class="li-last">
+      <a (click)="logout()"><i class="fa fa-user" aria-hidden="true"></i></a>
+    </li>
+  </ul>
+</nav>

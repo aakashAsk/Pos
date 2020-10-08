@@ -1,0 +1,54 @@
+<mat-card class="">
+  <div class="product-view ">
+    <div class="product-box">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Item code</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngIf="productList.length > 0" [hidden]="isLoaded">
+          <tr *ngFor="let product of productList; let i= index">
+            <th scope="row"><img [src]="product.img" class="product-img"></th>
+            <td>{{product.title}}</td>
+            <td><i class="fas fa-rupee-sign mr-1"></i>{{product.price}}</td>
+            <td>{{product.code}}</td>
+            <td>
+              <button class="btn btn-ed" (click)="onEdit(product.id)">Edit</button>
+              <button class="btn btn-de" (click)="onDelete(product.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+        <tbody class="tb-loader" [hidden]="!isLoaded">
+          <tr>
+            <th scope="row">
+              <div class="product-img-loader"></div>
+            </th>
+            <td>
+              <div class="loader"></div>
+            </td>
+            <td>
+              <div class="loader" style="margin: auto;"></div>
+            </td>
+            <td>
+              <div class="loader" style="margin-left: auto;"></div>
+            </td>
+            <td>
+              <div class="dis">
+                <div class="loader btn-loader"></div>
+                <div class="loader btn-loader"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="productList.length==0">
+        <p style="text-align: center;">No Product Availables</p>
+      </div>
+    </div>
+  </div>
+</mat-card>

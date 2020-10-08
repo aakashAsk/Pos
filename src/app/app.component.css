@@ -1,0 +1,14 @@
+.row-container{
+  display: flex;
+}
+.colum-container-2{
+  width: 100%;
+  height: 100vh;
+  
+}
+.main-container{
+  background: #fff;
+    height: 95%;
+    width: 95%;
+    border-radius: 15px;
+}

@@ -1,0 +1,41 @@
+mat-card{
+  width: 80%;
+  margin: auto;
+  border-radius: 15px;
+}
+.outline{
+  outline: none;
+}
+.input-box{
+  margin: auto;
+  width: 85%;
+}
+mat-form-field{
+width: 100%;
+}
+.addBtn{
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+}
+ ::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex{
+  background-color: white !important;;
+ }
+
+ ::ng-deep.mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: .75em .75em 0 0em;
+}
+.half-width{
+  width: 40%;
+}
+.error{
+  margin-left: auto;
+    background: #ff5555b3;
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid #ff0000;
+    padding: .5rem 1rem;
+}
+input[type="file"]{
+  display: none;
+}

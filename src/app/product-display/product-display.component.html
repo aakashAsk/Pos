@@ -1,0 +1,72 @@
+<div class="main p-3">
+  <div style="position: relative;"  [@showHide]="emptyArray ? 'show' : 'hide'">
+    <div class="error-cnt">
+      <p class="m-0">Cart is empty! Please add item in cart</p>
+    </div>
+  </div>
+  <div class="">
+    <div class="d-flex pl-3 pr-3">
+      <p class="order-no">Order No. #{{orderNo}}</p>
+      <p class="ml-auto mr-auto">{{name | wish:timeSlot}}</p>
+      <p class="date-time">{{todayString + ' ' + time}}</p>
+    </div>
+  </div>
+  <div class="main-cnt d-flex">
+    <div class="cnt cnt1">
+      <app-product-list-display></app-product-list-display>
+    </div>
+    <div class="cnt cnt2">
+      <app-cart (error)="onError($event)"></app-cart>
+    </div>
+  </div>
+</div>
+
+  <!-- <div class="item-box">
+    <div class="container-box">
+      <div class="heading pl-3">
+        <div class="mt-3 mb-3 col-12 pl-3 heading-cnt">
+          <p class="order-no">Order No. #1201</p>
+          <p class="date-time">Mon, 23 jul 2019, 02:34 AM</p>
+        </div>
+        <div class="search-box mt-3 col-12 pr-0">
+          <div class="input-box">
+            <i class="fas fa-search"></i>
+            <input type="text" class="search-input" placeholder="Enter item code">
+          </div>
+        </div>
+      </div>
+      <div class="product-list mt-3 mb-3 pl-3">
+       <div class="col-12">
+         <div class="row scrl  d-flex justify-content-center">
+              <div class="colum m-3 p-3" *ngFor="let item of menuItems">
+                <img src="{{item.img}}" class="img">
+                <div class="tpbox mt-3">
+                  <h3>{{item.title}}</h3>
+                  <p><i class="fas fa-rupee-sign"></i> {{item.price}}</p>
+                </div>
+                <div class="mt-3">
+                  <button class="btn" type="button" [disabled]="item.add" 
+                  (click)="addToCartBtn(item.id, $event)">Add</button>
+
+                 <!-- <ng-template #temp>
+                    *ngIf="item.cartValue === 0;"
+                    <div class="d-flex justify-content-center" >
+                      <button type="button" class="addBtn Btn" (click)="addBtn(item.id)">+</button>
+                      <input class="itm-value" value="{{item.cartValue}}">
+                      <button type="button" class="rmvBtn Btn" (click)="rmvBtn(item.id)">-</button>
+                    </div>
+                  </ng-template> 
+                </div>
+
+              </div>
+              
+         </div>
+       </div>
+      </div>
+      <div class="product-type"></div>
+    </div>
+
+    <div class="cart-section">
+      <app-cart [cartItem]="Items" (add)="updateValue($event)"></app-cart>
+    </div>
+  </div> -->

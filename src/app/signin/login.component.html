@@ -1,0 +1,50 @@
+<div class="main mb-3">
+  <mat-card>
+    <div class="input-box">
+      <div class="d-flex justify-content-center">
+        <div class="box pt-2 pb-2 wi-80 d-flex">
+          <h1>Sign In</h1>
+         <div style="margin-left: auto;" 
+         [hidden]="!error">
+          <div class="error-msg"><i class="fas fa-check mr-2"></i>{{errorMsg}}</div>
+        </div>
+        </div>
+      </div>
+      <form [formGroup]="form" (submit)="submit()">
+        <div class="d-flex justify-content-center">
+          <div class="wi-80">
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label for="txt3">Enter email</mat-label>
+                <input type="text"
+                matInput
+                class="p-1"
+                formControlName="email"
+                [email]="true"
+                placeholder="Ex. abc@xyz.com">
+              </mat-form-field>
+            </div>
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label>Enter password</mat-label>
+                <input type="text"
+                  matInput
+                  type="password"
+                  class="p-1"
+                  formControlName="password"
+                  placeholder="password">
+              </mat-form-field>
+            </div>
+            <div class="d-flex align-items-center">
+              <button type="submit" 
+                mat-raised-button 
+                class="outline"
+                color="primary"><mat-icon [hidden]="isLoadded"><mat-spinner diameter="20" color="accent" ></mat-spinner></mat-icon>Login</button>
+                <a [routerLink]="['/login']" class="atag">Registration User</a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,84 @@
+<div class="main mb-3">
+  <mat-card>
+    <div class="input-box">
+      <div class="d-flex justify-content-center">
+        <div class="box pt-2 pb-2 wi-80 d-flex">
+          <h1>Add Product</h1>
+         <div style="margin-left: auto;" 
+         [hidden]="!done">
+          <div class="success-msg"><i class="fas fa-check mr-2"></i>succesfully added</div>
+        </div>
+        </div>
+      </div>
+      <form [formGroup]="form" (submit)="form.valid && onSubmit()">
+        <div class="d-flex justify-content-center">
+          <div class="wi-80">
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label>Enter title</mat-label>
+                <input matInput
+                type="text"
+                required
+                formControlName="title"
+                class="p-1"
+                placeholder="Ex. Vada Pav">
+                <mat-error *ngIf="form.get('title').invalid">Please enter title</mat-error>
+                <mat-error *ngIf="form.get('title').errors?.pattern">Please enter valid title</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label>Enter price</mat-label>
+                <input matInput
+                required
+                formControlName="price"
+                class="p-1"
+                placeholder="Ex. 20/piece">
+                <mat-error *ngIf="form.get('price').errors?.required">Please enter price</mat-error>
+                <mat-error *ngIf="form.get('price').errors?.pattern">Please enter valid price</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-box mb-2">
+              <mat-form-field class="example-full-width">
+                <mat-label>Enter code</mat-label>
+                <input matInput
+                required
+                formControlName="code"
+                class="p-1"
+                placeholder="Ex. #12312">
+                <mat-error *ngIf="form.get('code').errors?.required">Please enter code</mat-error>
+                <mat-error *ngIf="form.get('code').errors?.pattern">code must start with #</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-box mb-2">
+              <button mat-stroked-button
+              type="button"
+              (click)="file.click()" 
+              class="outline"
+              color="primary">Pick Image</button>
+              <input
+              type="file"
+              class="p-1"
+              #file
+              (change)="onChange($event)"
+              placeholder="Ex. #12312">
+              <div><img [src]="imgPrev" class="img mb-1 mt-3"></div>
+            </div>
+            <button type="submit" 
+            mat-raised-button 
+            class="outline"
+            color="primary">{{btnName}}<mat-icon [hidden]="!isLoaded"><mat-spinner diameter="20" color="accent" ></mat-spinner></mat-icon></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>
+
+
+<!-- 
+  <div class="item-box">
+    <div class="product-list mt-5">
+    </div>
+  </div>
+-->

@@ -1,0 +1,66 @@
+<mat-card class="mt-3">
+  <div class="input-box">
+    <div class="d-flex">
+      <h1>Add expense</h1>
+      <div [hidden]="!error" class="error">please fill all the feild</div>
+    </div>
+    <form [formGroup]="form" (submit)="submit()">
+      <mat-form-field class="example-full-width">
+        <mat-label for="txt1">Enter title</mat-label>
+        <input matInput
+        type="text"
+        class="p-1"
+        id="txt1"
+        formControlName="title"
+        placeholder="Title of expense">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput 
+        formControlName="date"
+        [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <div class="" formArrayName="expenseList">
+        <div 
+        *ngFor="let list of form.controls.expenseList['controls']; let i = index" [formGroupName]="i" >
+          <mat-form-field class="half-width mr-1">
+            <mat-label>Enter item name</mat-label>
+            <input matInput
+            type="text"
+            class="p-1"
+            id="{{i}}"
+            formControlName="expense"
+            placeholder="Item name">
+          </mat-form-field>
+          <mat-form-field class="half-width ml-1">
+            <mat-label for="txt1">Enter item price</mat-label>
+            <input matInput
+            type="number"
+            class="p-1"
+            id="txt1"
+            formControlName="price"
+            placeholder="Item price">
+          </mat-form-field>
+          <button type="submit"
+            *ngIf="formArray.length > 1"
+            mat-raised-button 
+            class="outline ml-3"
+            (click)="deleteFeild(i)"
+            color="primary">Delete</button>
+        </div>
+      </div>
+      <button type="button"
+        mat-raised-button 
+        class="outline mr-3"
+        color="primary" (click)="addFeild()">Add more expense</button>
+      <button type="submit"
+      mat-raised-button 
+      class="outline"
+      color="primary">Add Expense</button>
+    </form>
+  </div>
+</mat-card>
